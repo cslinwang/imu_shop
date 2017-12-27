@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tyut.shop.dao.CategoryMapper">
-  <resultMap id="BaseResultMap" type="com.tyut.shop.pojo.Category">
+<mapper namespace="com.imu.shop.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.imu.shop.pojo.Category">
     <id column="cateId" jdbcType="INTEGER" property="cateid" />
     <result column="cateName" jdbcType="VARCHAR" property="catename" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     cateId, cateName
   </sql>
-  <select id="selectByExample" parameterType="com.tyut.shop.pojo.CategoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.imu.shop.pojo.CategoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -81,7 +81,7 @@
     </if>
 
   </select>
-  <select id="selectByExampleLimit" parameterType="com.tyut.shop.pojo.CategoryExample" resultMap="BaseResultMap">
+  <select id="selectByExampleLimit" parameterType="com.imu.shop.pojo.CategoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -106,17 +106,17 @@
     delete from category
     where cateId = #{cateid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tyut.shop.pojo.CategoryExample">
+  <delete id="deleteByExample" parameterType="com.imu.shop.pojo.CategoryExample">
     delete from category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tyut.shop.pojo.Category">
+  <insert id="insert" parameterType="com.imu.shop.pojo.Category">
     insert into category (cateId, cateName)
     values (#{cateid,jdbcType=INTEGER}, #{catename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tyut.shop.pojo.Category">
+  <insert id="insertSelective" parameterType="com.imu.shop.pojo.Category">
     insert into category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cateid != null">
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tyut.shop.pojo.CategoryExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.imu.shop.pojo.CategoryExample" resultType="java.lang.Long">
     select count(*) from category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -163,7 +163,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tyut.shop.pojo.Category">
+  <update id="updateByPrimaryKeySelective" parameterType="com.imu.shop.pojo.Category">
     update category
     <set>
       <if test="catename != null">
@@ -172,7 +172,7 @@
     </set>
     where cateId = #{cateid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tyut.shop.pojo.Category">
+  <update id="updateByPrimaryKey" parameterType="com.imu.shop.pojo.Category">
     update category
     set cateName = #{catename,jdbcType=VARCHAR}
     where cateId = #{cateid,jdbcType=INTEGER}

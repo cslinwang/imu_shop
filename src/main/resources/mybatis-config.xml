@@ -8,7 +8,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.tyut.shop.pojo" />
+        <package name="com.imu.shop.pojo" />
     </typeAliases>
 
     <!--分页插件-->

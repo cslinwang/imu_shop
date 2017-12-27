@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tyut.shop.dao.DeliverMapper">
-  <resultMap id="BaseResultMap" type="com.tyut.shop.pojo.Deliver">
+<mapper namespace="com.imu.shop.dao.DeliverMapper">
+  <resultMap id="BaseResultMap" type="com.imu.shop.pojo.Deliver">
     <id column="deliverId" jdbcType="INTEGER" property="deliverid" />
     <result column="orderId" jdbcType="INTEGER" property="orderid" />
     <result column="sendId" jdbcType="INTEGER" property="sendid" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     deliverId, orderId, sendId
   </sql>
-  <select id="selectByExample" parameterType="com.tyut.shop.pojo.DeliverExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.imu.shop.pojo.DeliverExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,19 +91,19 @@
     delete from deliver
     where deliverId = #{deliverid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tyut.shop.pojo.DeliverExample">
+  <delete id="deleteByExample" parameterType="com.imu.shop.pojo.DeliverExample">
     delete from deliver
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tyut.shop.pojo.Deliver">
+  <insert id="insert" parameterType="com.imu.shop.pojo.Deliver">
     insert into deliver (deliverId, orderId, sendId
       )
     values (#{deliverid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{sendid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tyut.shop.pojo.Deliver">
+  <insert id="insertSelective" parameterType="com.imu.shop.pojo.Deliver">
     insert into deliver
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="deliverid != null">
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tyut.shop.pojo.DeliverExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.imu.shop.pojo.DeliverExample" resultType="java.lang.Long">
     select count(*) from deliver
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tyut.shop.pojo.Deliver">
+  <update id="updateByPrimaryKeySelective" parameterType="com.imu.shop.pojo.Deliver">
     update deliver
     <set>
       <if test="orderid != null">
@@ -172,7 +172,7 @@
     </set>
     where deliverId = #{deliverid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tyut.shop.pojo.Deliver">
+  <update id="updateByPrimaryKey" parameterType="com.imu.shop.pojo.Deliver">
     update deliver
     set orderId = #{orderid,jdbcType=INTEGER},
       sendId = #{sendid,jdbcType=INTEGER}

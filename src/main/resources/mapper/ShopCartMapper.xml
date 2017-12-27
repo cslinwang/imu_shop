@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tyut.shop.dao.ShopCartMapper">
-  <resultMap id="BaseResultMap" type="com.tyut.shop.pojo.ShopCart">
+<mapper namespace="com.imu.shop.dao.ShopCartMapper">
+  <resultMap id="BaseResultMap" type="com.imu.shop.pojo.ShopCart">
     <id column="userId" jdbcType="INTEGER" property="userid" />
     <id column="goodsid" jdbcType="INTEGER" property="goodsid" />
     <result column="cateDate" jdbcType="TIMESTAMP" property="catedate" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     userId, goodsid, cateDate, goodsNum
   </sql>
-  <select id="selectByExample" parameterType="com.tyut.shop.pojo.ShopCartExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.imu.shop.pojo.ShopCartExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -82,31 +82,31 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="com.tyut.shop.pojo.ShopCartKey" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="com.imu.shop.pojo.ShopCartKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from shopcart
     where userId = #{userid,jdbcType=INTEGER}
       and goodsid = #{goodsid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.tyut.shop.pojo.ShopCartKey">
+  <delete id="deleteByPrimaryKey" parameterType="com.imu.shop.pojo.ShopCartKey">
     delete from shopcart
     where userId = #{userid,jdbcType=INTEGER}
       and goodsid = #{goodsid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tyut.shop.pojo.ShopCartExample">
+  <delete id="deleteByExample" parameterType="com.imu.shop.pojo.ShopCartExample">
     delete from shopcart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tyut.shop.pojo.ShopCart">
+  <insert id="insert" parameterType="com.imu.shop.pojo.ShopCart">
     insert into shopcart (userId, goodsid, cateDate, 
       goodsNum)
     values (#{userid,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, #{catedate,jdbcType=TIMESTAMP}, 
       #{goodsnum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.tyut.shop.pojo.ShopCart">
+  <insert id="insertSelective" parameterType="com.imu.shop.pojo.ShopCart">
     insert into shopcart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userid != null">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tyut.shop.pojo.ShopCartExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.imu.shop.pojo.ShopCartExample" resultType="java.lang.Long">
     select count(*) from shopcart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -173,7 +173,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tyut.shop.pojo.ShopCart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.imu.shop.pojo.ShopCart">
     update shopcart
     <set>
       <if test="catedate != null">
@@ -186,7 +186,7 @@
     where userId = #{userid,jdbcType=INTEGER}
       and goodsid = #{goodsid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tyut.shop.pojo.ShopCart">
+  <update id="updateByPrimaryKey" parameterType="com.imu.shop.pojo.ShopCart">
     update shopcart
     set cateDate = #{catedate,jdbcType=TIMESTAMP},
       goodsNum = #{goodsnum,jdbcType=INTEGER}

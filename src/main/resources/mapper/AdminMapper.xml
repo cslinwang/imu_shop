@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tyut.shop.dao.AdminMapper">
-  <resultMap id="BaseResultMap" type="com.tyut.shop.pojo.Admin">
+<mapper namespace="com.imu.shop.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="com.imu.shop.pojo.Admin">
     <id column="adminId" jdbcType="INTEGER" property="adminid" />
     <result column="adminName" jdbcType="VARCHAR" property="adminname" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     adminId, adminName, password
   </sql>
-  <select id="selectByExample" parameterType="com.tyut.shop.pojo.AdminExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.imu.shop.pojo.AdminExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -87,7 +87,7 @@
     from admin
     where adminId = #{adminid,jdbcType=INTEGER}
   </select>
-  <select id="selectByName" parameterType="com.tyut.shop.pojo.Admin" resultMap="BaseResultMap">
+  <select id="selectByName" parameterType="com.imu.shop.pojo.Admin" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from admin
@@ -100,19 +100,19 @@
     delete from admin
     where adminId = #{adminid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tyut.shop.pojo.AdminExample">
+  <delete id="deleteByExample" parameterType="com.imu.shop.pojo.AdminExample">
     delete from admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tyut.shop.pojo.Admin">
+  <insert id="insert" parameterType="com.imu.shop.pojo.Admin">
     insert into admin (adminId, adminName, password
       )
     values (#{adminid,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tyut.shop.pojo.Admin">
+  <insert id="insertSelective" parameterType="com.imu.shop.pojo.Admin">
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="adminid != null">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tyut.shop.pojo.AdminExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.imu.shop.pojo.AdminExample" resultType="java.lang.Long">
     select count(*) from admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -169,7 +169,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tyut.shop.pojo.Admin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.imu.shop.pojo.Admin">
     update admin
     <set>
       <if test="adminname != null">
@@ -181,7 +181,7 @@
     </set>
     where adminId = #{adminid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tyut.shop.pojo.Admin">
+  <update id="updateByPrimaryKey" parameterType="com.imu.shop.pojo.Admin">
     update admin
     set adminName = #{adminname,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}
