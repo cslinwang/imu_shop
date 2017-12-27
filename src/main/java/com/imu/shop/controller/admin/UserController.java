@@ -26,14 +26,14 @@ public class UserController {
 
     @RequestMapping("/showjson")
     @ResponseBody
-    public Msg getAllGoods(@RequestParam(value = "page",defaultValue = "1") Integer pn, HttpServletResponse response, Model model) {
+    public Msg getAllGoods(@RequestParam(value = "page", defaultValue = "1") Integer pn, HttpServletResponse response, Model model) {
         //一页显示几个数据
         PageHelper.startPage(pn, 10);
 
         List<User> userList = userService.selectByExample(new UserExample());
 
         //显示几个页号
-        PageInfo page = new PageInfo(userList,5);
+        PageInfo page = new PageInfo(userList, 5);
 
        /* model.addAttribute("pageInfo", page);*/
 
@@ -47,7 +47,7 @@ public class UserController {
 
     @RequestMapping(value = "/delete/{userid}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Msg deleteUser(@PathVariable("userid")Integer userid) {
+    public Msg deleteUser(@PathVariable("userid") Integer userid) {
 //        goodsService.deleteGoodsById(goodsid);
         userService.deleteUserById(userid);
         return Msg.success("删除成功!");

@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class VerificationCodeImgController {
     @RequestMapping("/verificationcodeimg")
-    public ModelAndView verificationcodeimg(){
-        ModelAndView verificationcodeimg=new ModelAndView();
+    public ModelAndView verificationcodeimg() {
+        ModelAndView verificationcodeimg = new ModelAndView();
         verificationcodeimg.setViewName("verificationcodeimg");
         return verificationcodeimg;
     }

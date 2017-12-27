@@ -1,27 +1,29 @@
 package com.imu.shop.mybatis;
 
-import com.imu.shop.pojo.Admin;
 import com.imu.shop.dao.AdminMapper;
-//import com.neu.shop.dao.DepartmentMapper;
+import com.imu.shop.pojo.Admin;
+import com.imu.shop.service.GoodsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+//import com.neu.shop.dao.DepartmentMapper;
+
 /**
  * Created by WangLin on 2017/11/17.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:applicationContext.xml"})
-public class MapperTest {
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+public class GoodsServiceTest {
 
     /*@Autowired(required = false)
     DepartmentMapper departmentMapper;*/
 
     @Autowired(required = false)
-    AdminMapper adminMapper;
+    GoodsService goodsService;
 
     /**
      * 测试DepartmentMapper
@@ -40,7 +42,7 @@ public class MapperTest {
         departmentMapper.insertSelective(new Department(null, "业务部"));
         departmentMapper.insertSelective(new Department(null, "销售部"));*/
 
-        System.out.println(adminMapper.selectByName(new Admin(null,"root","root")));
+       // System.out.println(adminMapper.selectByName(new Admin(null, "root", "root")));
 
     }
 

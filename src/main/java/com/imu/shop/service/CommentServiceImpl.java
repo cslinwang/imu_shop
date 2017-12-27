@@ -1,4 +1,4 @@
-package com.imu.shop.service.impl;
+package com.imu.shop.service;
 
 import com.imu.shop.pojo.Comment;
 import com.imu.shop.pojo.CommentExample;
@@ -19,7 +19,7 @@ public class CommentServiceImpl implements CommentService {
     private CommentMapper commentMapper;
 
     @Override
-    public void insertSelective(Comment comment){
+    public void insertSelective(Comment comment) {
         commentMapper.insertSelective(comment);
     }
 

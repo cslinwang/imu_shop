@@ -111,7 +111,7 @@ public class ChatController {
         userExample.or().andUseridIn(useridList);
         List<User> userList = userService.selectByExample(userExample);
 
-        return Msg.success("获取聊天列表成功").add("userlist",userList);
+        return Msg.success("获取聊天列表成功").add("userlist", userList);
     }
 
 
@@ -188,7 +188,7 @@ public class ChatController {
         userExample.or().andUseridIn(useridList);
         List<User> userList = userService.selectByExample(userExample);
 //        model.addAttribute("chatuserlist", userList);
-        return Msg.success("获取列表成功").add("userlist",userList);
+        return Msg.success("获取列表成功").add("userlist", userList);
     }
 
     @RequestMapping("/sendMessage")

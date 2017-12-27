@@ -59,13 +59,13 @@ public class MainController {
         List<Category> digCategoryList = cateService.selectByExample(digCategoryExample);
 
         if (digCategoryList.size() == 0) {
-            return  null;
+            return null;
         }
 
         //查询属于刚查到的分类的商品
         GoodsExample digGoodsExample = new GoodsExample();
         List<Integer> digCateId = new ArrayList<Integer>();
-        for (Category tmp:digCategoryList) {
+        for (Category tmp : digCategoryList) {
             digCateId.add(tmp.getCateid());
         }
         digGoodsExample.or().andCategoryIn(digCateId);
@@ -74,7 +74,7 @@ public class MainController {
 
         List<Goods> goodsAndImage = new ArrayList<>();
         //获取每个商品的图片
-        for (Goods goods:goodsList) {
+        for (Goods goods : goodsList) {
             //判断是否为登录状态
             if (userid == null) {
                 goods.setFav(false);

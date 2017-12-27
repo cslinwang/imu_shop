@@ -2,6 +2,7 @@ package com.imu.shop.dao;
 
 import com.imu.shop.pojo.Goods;
 import com.imu.shop.pojo.GoodsExample;
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;

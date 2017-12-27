@@ -1,4 +1,4 @@
-package com.imu.shop.service.impl;
+package com.imu.shop.service;
 
 import com.imu.shop.dao.UserMapper;
 import com.imu.shop.pojo.UserExample;
@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User selectByPrimaryKey(int userId) {
-        return  userMapper.selectByPrimaryKey(userId);
+        return userMapper.selectByPrimaryKey(userId);
     }
 
     @Override

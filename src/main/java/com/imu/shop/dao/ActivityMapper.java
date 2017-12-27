@@ -2,7 +2,9 @@ package com.imu.shop.dao;
 
 import com.imu.shop.pojo.Activity;
 import com.imu.shop.pojo.ActivityExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ActivityMapper {

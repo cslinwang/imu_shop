@@ -1,4 +1,4 @@
-package com.imu.shop.service.impl;
+package com.imu.shop.service;
 
 import com.imu.shop.pojo.ShopCart;
 import com.imu.shop.service.ShopCartService;
