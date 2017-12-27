@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by wwwglin@163.com on 2017/11/24.
+ * Created by 文辉 on 2017/7/24.
  */
 @Service("addShopCart")
 public class ShopCartServiceImpl implements ShopCartService {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wwwglin@163.com on 2017/11/17.
+ * Created by 文辉 on 2017/7/17.
  */
 /*public class MBGTest {
     public static void main(String[] args) throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {

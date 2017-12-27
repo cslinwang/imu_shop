@@ -6,7 +6,7 @@ import com.tyut.shop.pojo.CommentExample;
 import java.util.List;
 
 /**
- * Created by 蒋松冬 on 2017/11/27.
+ * Created by 蒋松冬 on 2017/7/27.
  */
 public interface CommentService {
     public void insertSelective(Comment comment);

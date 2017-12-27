@@ -6,7 +6,7 @@ import com.tyut.shop.pojo.UserExample;
 import java.util.List;
 
 /**
- * Created by 蒋松冬 on 2017/11/20.
+ * Created by 蒋松冬 on 2017/7/20.
  */
 public interface UserService {
     public User selectByPrimaryKey(int userId);

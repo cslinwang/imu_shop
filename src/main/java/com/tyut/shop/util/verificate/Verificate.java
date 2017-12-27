@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.Random;
 
 /**
- * Created by 蒋松冬 on 2017/11/22.
+ * Created by 蒋松冬 on 2017/7/22.
  */
 public class Verificate {
 

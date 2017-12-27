@@ -5,7 +5,7 @@ import com.tyut.shop.pojo.*;
 import java.util.List;
 
 /**
- * Created by wwwglin@163.com on 2017/11/25.
+ * Created by 文辉 on 2017/7/25.
  */
 public interface OrderService {
     public void insertOrder(Order order);

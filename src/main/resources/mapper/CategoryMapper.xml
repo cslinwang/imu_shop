@@ -79,6 +79,7 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
+
   </select>
   <select id="selectByExampleLimit" parameterType="com.tyut.shop.pojo.CategoryExample" resultMap="BaseResultMap">
     select

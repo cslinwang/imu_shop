@@ -7,7 +7,7 @@ import com.tyut.shop.pojo.ShopCartKey;
 import java.util.List;
 
 /**
- * Created by wwwglin@163.com on 2017/11/24.
+ * Created by 文辉 on 2017/7/24.
  */
 public interface ShopCartService {
     public void addShopCart(ShopCart shopCart);

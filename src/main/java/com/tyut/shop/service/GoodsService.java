@@ -5,7 +5,7 @@ import com.tyut.shop.pojo.*;
 import java.util.List;
 
 /**
- * Created by wwwglin@163.com on 2017/11/19.
+ * Created by 文辉 on 2017/7/19.
  */
 
 public interface GoodsService {

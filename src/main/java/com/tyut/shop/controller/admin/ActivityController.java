@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * Created by wwwglin@163.com on 2017/11/27.
+ * Created by mayue on 2017/12/7.
  */
 @Controller
 @RequestMapping("/admin/activity")
