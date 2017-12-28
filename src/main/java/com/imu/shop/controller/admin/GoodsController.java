@@ -5,7 +5,6 @@ import com.github.pagehelper.PageInfo;
 import com.imu.shop.pojo.*;
 import com.imu.shop.service.CateService;
 import com.imu.shop.service.GoodsService;
-import com.imu.shop.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by WangLin on 2017/11/19.
@@ -40,8 +42,30 @@ public class GoodsController {
         }
         //一页显示几个数据
         PageHelper.startPage(pn, 10);
-
         List<Goods> goodsList = goodsService.selectByExample(new GoodsExample());
+        //显示几个页号
+        PageInfo page = new PageInfo(goodsList, 5);
+
+        model.addAttribute("pageInfo", page);
+
+        return Msg.success("查询成功!").add("pageInfo", page);
+    }
+
+    @RequestMapping("/selecyByKeyWord1")
+    @ResponseBody
+    public Msg selecyByKeyWord1(@RequestParam(value = "page", defaultValue = "1") Integer pn, String keyword, HttpServletResponse response, Model model, HttpSession session) {
+        Admin admin = (Admin) session.getAttribute("admin");
+        if (admin == null) {
+            return Msg.fail("请先登录");
+        }
+        //一页显示几个数据
+        PageHelper.startPage(pn, 10);
+        GoodsExample goodsExample = new GoodsExample();
+        //goodsExample.or().andGoodsnameLike((String)session.getAttribute("keyword"));
+        //字符串拼接，模糊查询
+        keyword = "%" + keyword + "%";
+        goodsExample.or().andGoodsnameLike(keyword);
+        List<Goods> goodsList = goodsService.selectByExample(goodsExample);
 
         //显示几个页号
         PageInfo page = new PageInfo(goodsList, 5);
@@ -51,8 +75,20 @@ public class GoodsController {
         return Msg.success("查询成功!").add("pageInfo", page);
     }
 
+    @RequestMapping("/selecyByKeyWord")
+    public String selecyByKeyWord(@RequestParam(value = "page", defaultValue = "1") Integer pn, String keyword, HttpServletResponse response, Model model, HttpSession session) {
+        Admin admin1 = (Admin) session.getAttribute("admin");
+        if (admin1 == null) {
+            return "redirect:/admin/login";
+        }
+        List<Category> categoryList = cateService.selectByExample(new CategoryExample());
+        model.addAttribute("categoryList1", categoryList);
+
+        return "adminAllGoods";
+    }
+
     @RequestMapping("/show")
-    public String goodsManage(@RequestParam(value = "page", defaultValue = "1") Integer pn, HttpServletResponse response, Model model, HttpSession session) throws IOException {
+    public String goodsManage(@RequestParam(value = "page", defaultValue = "1   ") Integer pn, HttpServletResponse response, Model model, HttpSession session) throws IOException {
         Admin admin = (Admin) session.getAttribute("admin");
         if (admin == null) {
             return "redirect:/admin/login";
@@ -143,8 +179,9 @@ public class GoodsController {
         if (admin == null) {
             return "redirect:/admin/login";
         }
+        //查询所有分类
         CategoryExample categoryExample = new CategoryExample();
-        categoryExample.or();
+        //categoryExample.or();
         List<Category> categoryList;
         categoryList = cateService.selectByExample(categoryExample);
         model.addAttribute("categoryList", categoryList);
@@ -160,6 +197,9 @@ public class GoodsController {
     @RequestMapping("/addCategoryResult")
     public String addCategoryResult(Category category, Model addCategoryResult, RedirectAttributes redirectAttributes) {
         List<Category> categoryList = new ArrayList<>();
+
+        //查询分类是否存在
+        //select * from c where cname = ?;
         CategoryExample categoryExample = new CategoryExample();
         categoryExample.or().andCatenameEqualTo(category.getCatename());
         categoryList = cateService.selectByExample(categoryExample);
@@ -176,6 +216,7 @@ public class GoodsController {
     @RequestMapping("/saveCate")
     @ResponseBody
     public Msg saveCate(Category category) {
+        //分类是否存在
         CategoryExample categoryExample = new CategoryExample();
         categoryExample.or().andCatenameEqualTo(category.getCatename());
         List<Category> categoryList = cateService.selectByExample(categoryExample);

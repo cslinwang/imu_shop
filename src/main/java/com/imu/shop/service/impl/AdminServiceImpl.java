@@ -1,4 +1,4 @@
-package com.imu.shop.service;
+package com.imu.shop.service.impl;
 
 import com.imu.shop.pojo.Admin;
 import com.imu.shop.dao.AdminMapper;

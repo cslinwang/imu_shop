@@ -1,4 +1,4 @@
-package com.imu.shop.service;
+package com.imu.shop.service.impl;
 
 import com.imu.shop.dao.GoodsMapper;
 import com.imu.shop.pojo.*;
@@ -90,5 +90,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<Favorite> selectFavByExample(FavoriteExample favoriteExample) {
         return favoriteMapper.selectByExample(favoriteExample);
+    }
+
+    @Override
+    public List<Goods> selectAllGoods() {
+        return goodsMapper.selectAll();
     }
 }

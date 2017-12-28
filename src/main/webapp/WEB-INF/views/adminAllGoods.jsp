@@ -193,6 +193,11 @@
         <jsp:include page="goodsNav.jsp"/>
         <div class="templatemo-content-container">
             <div class="templatemo-content-widget no-padding">
+                <form action="/shop/admin/goods/selecyByKeyWord">
+                    <input type="text" name="keyword">
+                    <button type="submit" class="btn btn-primary">商品查询</button>
+                </form>
+
                 <div class="panel panel-default table-responsive">
                     <table id="goodsinfo" class="table table-striped table-bordered templatemo-user-table">
                         <thead>
@@ -203,6 +208,7 @@
                             <td><a href="" class="white-text templatemo-sort-by">数量<span class="caret"></span></a></td>
                             <td><a href="" class="white-text templatemo-sort-by">类别<span class="caret"></span></a></td>
                             <td><a href="" class="white-text templatemo-sort-by">活动<span class="caret"></span></a></td>
+                            <td>描述</td>
                             <td>详情</td>
                             <td>编辑</td>
                             <td>删除</td>
@@ -277,13 +283,5 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/templatemo-script.js"></script>
 <script src="${pageContext.request.contextPath}/js/goodsManage.js"></script>
 <!-- Templatemo Script -->
-<script>
-    $(document).ready(function () {
-        // Content widget with background image
-        var imageUrl = $('img.content-bg-img').attr('src');
-        $('.templatemo-content-img-bg').css('background-image', 'url(' + imageUrl + ')');
-        $('img.content-bg-img').hide();
-    });
-</script>
 </body>
 </html>

@@ -7,7 +7,6 @@ $(document).ready(function () {
 
     var path = $("#path").text();
 
-
     to_page(path, 1);
 
 });
@@ -56,12 +55,6 @@ $(document).on("click", "#saveUpdate", function () {
     var ucategory = $("#category").val();
     var udetailcate = $("#detailcate").val();
 
-    /*var option = {
-        url: '/shop/admin/goods/update/'+goodsid,
-        type:'post',
-    };
-    $("#update-goods").ajaxForm(option);*/
-
     $.ajax({
         url: "/shop/admin/goods/update/",
         type: "POST",
@@ -84,22 +77,6 @@ $(document).on("click", "#saveUpdate", function () {
         }
     });
 
-    /*var goodsid = $("#goodsid").text();
-    var updateForm = new FormData(document.getElementById("update-goods"));
-    $.ajax({
-        url:"/shop/admin/goods/update/" + goodsid,
-        type:"post",
-        data:updateForm,
-        processData:false,
-        contentType:false,
-        success:function(result){
-            swal(result.msg,'','success');
-        },
-        error:function(){
-            alert("错误！！");
-            window.clearInterval(timer);
-        }
-    });*/
 });
 
 $(document).on("click", ".templatemo-delete-btn", function () {
@@ -224,10 +201,10 @@ function build_goods_table(path, result) {
         var activityid = $("<td></td>").append(item.activityid);
 
         // var detailA = $('<a tabindex="0" class="btn btn-sm description" role="button" placement="top" data-toggle="popover" data-trigger="focus" title="描述" ></a>').append("描述");
-        var detailBtn = $('<button type="button" class="description" data-container="body" data-toggle="popover" data-placement="top"></button>').append("描述");
-
+       // var detailBtn = $('<button type="button" class="description" data-container="body" data-toggle="popover" data-placement="top" data-original-title title></button>').append("描述");
+        var detailBtn = $('<button type="button" class="description" title="详细描述" data-container="body" data-toggle="popover" data-placement="top"></button>').append("描述");
         detailBtn = detailBtn.attr("data-content", item.description);
-
+        //detailBtn = detailBtn.attr("data-content","描述demo");
         var detailA = $("<a></a>").addClass("templatemo-link").attr("href", "/shop/detail?goodsid=" + item.goodsid).append("详情");
 
         var editBtn = $("<button></button>").addClass("templatemo-edit-btn").append("编辑");
@@ -246,12 +223,12 @@ function build_goods_table(path, result) {
         });
 
         var actTd = $("<td></td>").append(actBtn);
-
+        var detailBtTd = $("<td></td>").append(detailBtn);
         var detailTd = $("<td></td>").append(detailA);
         var editTd = $("<td></td>").append(editBtn);
         var deleteTd = $("<td></td>").append(deleteBtn);
 
-        $("<tr></tr>").append(goodsid).append(goodsname).append(price).append(num).append(detailcate).append(activityid).append(desTd).append(detailTd).append(editTd).append(deleteTd).append(actTd).appendTo("#goodsinfo tbody");
+        $("<tr></tr>").append(goodsid).append(goodsname).append(price).append(num).append(detailcate).append(activityid).append(detailBtTd).append(desTd).append(detailTd).append(editTd).append(deleteTd).append(actTd).appendTo("#goodsinfo tbody");
     })
 }
 

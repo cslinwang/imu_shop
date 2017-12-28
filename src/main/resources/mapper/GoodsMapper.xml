@@ -340,4 +340,8 @@
         activityId = #{activityid,jdbcType=INTEGER}
         where goodsId = #{goodsid,jdbcType=INTEGER}
     </update>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM goods ;
+    </select>
 </mapper>

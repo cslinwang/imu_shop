@@ -37,4 +37,6 @@ public interface GoodsMapper {
     int updateByPrimaryKey(Goods record);
 
     List<Goods> selectByExampleWithBLOBsLimit(GoodsExample digGoodsExample);
+
+    List<Goods> selectAll();
 }
